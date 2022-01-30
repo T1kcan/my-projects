@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Description: |
+  This template launches an EC2 instance which enables SSH.
+
+Resources:
+  CFNInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-0a8b4cd432b1c3063
+      InstanceType: t2.micro
+      KeyName: firstkey
+      SecurityGroups: 
+        - cfn-sec-group
+      Tags:
+        - Key: Name
+          Value: Kitten-Carousel
+      UserData: 
+        Fn::Base64: 
+          !Sub |
+            #!/bin/bash
+            yum update -y
+            yum install -y httpd.x86_64
+            systemctl start httpd.service
+            systemctl enable httpd.service
+            wget https://github.com/T1kcan/my-projects/raw/main/aws/101-kittens-carousel-static-website-ec2/static-web/index.html /var/www/html/
+            wget https://github.com/T1kcan/my-projects/raw/main/aws/101-kittens-carousel-static-website-ec2/static-web/cat0.jpg /var/www/html/
+            wget https://github.com/T1kcan/my-projects/raw/main/aws/101-kittens-carousel-static-website-ec2/static-web/cat1.jpg /var/www/html/
+            wget https://github.com/T1kcan/my-projects/raw/main/aws/101-kittens-carousel-static-website-ec2/static-web/cat2.jpg /var/www/html/
+            wget https://github.com/T1kcan/my-projects/raw/main/aws/101-kittens-carousel-static-website-ec2/static-web/cat3.jpg /var/www/html/
+  
