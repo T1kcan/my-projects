@@ -23,9 +23,10 @@ Resources:
             yum install -y httpd.x86_64
             systemctl start httpd.service
             systemctl enable httpd.service
+            cd /var/www/html
             wget https://github.com/T1kcan/my-projects/raw/main/aws/101-kittens-carousel-static-website-ec2/static-web/index.html /var/www/html/
             wget https://github.com/T1kcan/my-projects/raw/main/aws/101-kittens-carousel-static-website-ec2/static-web/cat0.jpg /var/www/html/
             wget https://github.com/T1kcan/my-projects/raw/main/aws/101-kittens-carousel-static-website-ec2/static-web/cat1.jpg /var/www/html/
             wget https://github.com/T1kcan/my-projects/raw/main/aws/101-kittens-carousel-static-website-ec2/static-web/cat2.jpg /var/www/html/
-            wget https://github.com/T1kcan/my-projects/raw/main/aws/101-kittens-carousel-static-website-ec2/static-web/cat3.jpg /var/www/html/
+            wget https://github.com/T1kcan/my-projects/raw/main/aws/101-kittens-carousel-static-website-ec2/static-web/cat3.png /var/www/html/
   
